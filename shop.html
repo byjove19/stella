@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - Stella Empire | Premium Beauty Products</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+  <style>
+    /* Base Styles */
+    :root {
+      --primary: #ff4d2b;
+      --primary-light: #ff6b47;
+      --secondary: #222;
+      --accent: #f8e71c;
+      --light: #fafafa;
+      --white: #ffffff;
+      --gray: #666;
+      --light-gray: #e8e8e8;
+      --dark-gray: #333;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      color: var(--secondary);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    /* Header */
+    .page-header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 77, 43, 0.1);
+      transition: var(--transition);
+    }
+    
+    .page-header.scrolled {
+      padding: 10px 0;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .page-header__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-text::before {
+      content: "✦";
+      margin-right: 8px;
+      font-size: 22px;
+    }
+
+    .page-nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 35px;
+    }
+
+    .page-nav a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding: 5px 0;
+    }
+    
+    .page-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .page-nav a:hover {
+      color: var(--primary);
+    }
+    
+    .page-nav a:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .contact-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .contact-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--secondary);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(135deg, rgba(255, 77, 43, 0.9), rgba(255, 107, 71, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><rect fill="%23fafafa" width="1000" height="600"/><circle fill="%23ff4d2b" opacity="0.1" cx="200" cy="150" r="100"/><circle fill="%23ff6b47" opacity="0.1" cx="800" cy="400" r="150"/></svg>');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 150px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+    
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="%23fafafa"></path></svg>');
+      background-size: cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 4.5rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      animation: fadeInUp 0.8s ease;
+    }
+    
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.4rem;
+      opacity: 0.9;
+      font-weight: 300;
+      margin-bottom: 40px;
+      animation: fadeInUp 0.8s ease 0.2s forwards;
+      opacity: 0;
+    }
+
+    /* Filter Section */
+    .filter-section {
+      background: var(--white);
+      padding: 30px 0;
+      border-bottom: 1px solid var(--light-gray);
+      position: sticky;
+      top: 80px;
+      z-index: 100;
+    }
+
+    .filter-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .category-filters {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      border: 2px solid var(--light-gray);
+      background: var(--white);
+      color: var(--gray);
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .sort-select {
+      padding: 10px 15px;
+      border: 2px solid var(--light-gray);
+      border-radius: 25px;
+      background: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* Products Section */
+    .products-section {
+      padding: 80px 0;
+      background: var(--light);
+    }
+
+    .products-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title span {
+      display: block;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .section-title h2 {
+      font-size: 3.5rem;
+      margin: 0;
+      color: var(--secondary);
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    /* Product Card */
+    .product-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: var(--transition);
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .product-image {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      background: var(--light-gray);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .product-badge.sale {
+      background: var(--accent);
+      color: var(--secondary);
+    }
+
+    .product-wishlist {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.9);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--gray);
+    }
+
+    .product-wishlist:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .product-info {
+      padding: 25px;
+    }
+
+    .product-category {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--secondary);
+      line-height: 1.3;
+    }
+
+    .product-description {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .current-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .original-price {
+      font-size: 1.1rem;
+      color: var(--gray);
+      text-decoration: line-through;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .inquire-btn {
+      flex: 1;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: var(--white);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .inquire-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(255, 77, 43, 0.3);
+    }
+
+    .quick-view-btn {
+      width: 45px;
+      height: 45px;
+      background: var(--white);
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      color: var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quick-view-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Featured Categories */
+    .categories-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .category-card {
+      position: relative;
+      height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-image {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .category-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.3);
+      transition: var(--transition);
+    }
+
+    .category-card:hover .category-image::before {
+      background: rgba(0,0,0,0.1);
+    }
+
+    .category-icon {
+      font-size: 4rem;
+      color: var(--white);
+      position: relative;
+      z-index: 2;
+    }
+
+    .category-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: var(--white);
+      padding: 30px 20px 20px;
+      text-align: center;
+    }
+
+    .category-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .category-count {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* Newsletter Section */
+    .newsletter-section {
+      background: var(--secondary);
+      color: var(--white);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .newsletter-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .newsletter-content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-title {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .newsletter-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.8;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 400px;
+      margin: 0 auto;
+      gap: 15px;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .newsletter-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .newsletter-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: #111;
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 30px;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+    
+    .footer-section h3 {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .footer-section ul {
+      list-style: none;
+    }
+    
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-section a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 18px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 40px;
+      padding-top: 30px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: var(--white);
+      max-width: 900px;
+      margin: 50px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--white);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .modal-product {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .modal-product-image {
+      height: 500px;
+      background: var(--light-gray);
+    }
+
+    .modal-product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-product-info {
+      padding: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.8rem;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+      
+      .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .modal-product {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .page-nav ul {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+      
+      .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+        max-width: 300px;
+      }
+      
+      .filter-section {
+        position: static;
+      }
+      
+      .category-filters {
+        justify-content: center;
+      }
+      
+      .modal-content {
+        margin: 20px auto;
+      }
+      
+      .modal-product-info {
+        padding: 20px;
+      }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Loading placeholder */
+    .product-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(90deg, var(--light-gray) 25%, rgba(255,255,255,0.8) 50%, var(--light-gray) 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% {
+        background-position: -200% 0;
+      }
+      100% {
+        background-position: 200% 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="page-header" id="header">
+    <div class="page-header__inner">
+      <div class="page-header__logo">
+        <a href="#" class="logo-text">Stella Empire</a>
+      </div>
+      <nav class="page-nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop" class="active">Shop</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="#contact" class="contact-btn">Contact Us</a>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Premium <span>Beauty</span> Collection</h1>
+      <p class="hero-subtitle">Discover luxury hair, nails, lashes & beauty essentials crafted for perfection</p>
+    </div>
+  </section>
+
+  <!-- Filter Section -->
+  <section class="filter-section">
+    <div class="filter-container">
+      <div class="category-filters">
+        <button class="filter-btn active" data-category="all">All Products</button>
+        <button class="filter-btn" data-category="hair">Human Hair</button>
+        <button class="filter-btn" data-category="braids">Braids & Attachments</button>
+        <button class="filter-btn" data-category="extensions">Extensions</button>
+        <button class="filter-btn" data-category="nails">Nail Products</button>
+        <button class="filter-btn" data-category="lashes">Lashes</button>
+        <button class="filter-btn" data-category="pedicure">Pedicure</button>
+      </div>
+      <select class="sort-select">
+        <option value="featured">Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="newest">Newest First</option>
+        <option value="popular">Most Popular</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" id="products">
+    <div class="products-container">
+      <div class="section-title">
+        <span>Our Collection</span>
+        <h2>Premium Beauty Products</h2>
+      </div>
+
+      <div class="products-grid" id="products-grid">
+        <!-- Human Hair Products -->
+        <div class="product-card" data-category="hair">
+          <div class="product-image">
+            <img src="hero.jpeg" alt="Brazilian Straight Bundle">
+            <div class="product-badge">New</div>
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Human Hair</div>
+            <h3 class="product-name">Brazilian Straight Bundle</h3>
+            <p class="product-description">Premium 100% human hair, silky straight texture, 22 inches</p>
+            <div class="product-price">
+              <span class="current-price">₦45,000</span>
+              <span class="original-price">₦55,000</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="1">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="hair">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGN1cmx5JTIwaGFpcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Peruvian Curly Wave">
+            <div class="product-badge sale">Sale</div>
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Human Hair</div>
+            <h3 class="product-name">Peruvian Curly Wave</h3>
+            <p class="product-description">Luxurious curly texture, 20 inches, full and bouncy</p>
+            <div class="product-price">
+              <span class="current-price">₦38,000</span>
+              <span class="original-price">₦48,000</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="2">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Braids & Attachments -->
+        <div class="product-card" data-category="braids">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJhaWRpbmclMjBoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80" alt="Kanekalon Braiding Hair">
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Braids</div>
+            <h3 class="product-name">Kanekalon Braiding Hair</h3>
+            <p class="product-description">High-quality synthetic braiding hair, multiple colors available</p>
+            <div class="product-price">
+              <span class="current-price">₦2,500</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="3">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="braids">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1536599018107-e0f30f5c9e5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YnJhaWRzfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80" alt="Expression Braiding Hair">
+            <div class="product-badge">Popular</div>
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Attachments</div>
+            <h3 class="product-name">Expression Braiding Hair</h3>
+            <p class="product-description">Premium attachment hair for box braids and twists</p>
+            <div class="product-price">
+              <span class="current-price">₦3,200</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="4">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Extensions -->
+        <div class="product-card" data-category="extensions">
+          <div class="product-image">
+                       <img src="https://images.unsplash.com/photo-1596462102388-9ad96cec298a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNsaXAlMjBpbiUyMGhhaXIlMjBleHRlbnNpb25zfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80" alt="Clip-in Hair Extensions">
+            <div class="product-badge">Best Seller</div>
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Extensions</div>
+            <h3 class="product-name">Clip-in Hair Extensions</h3>
+            <p class="product-description">Easy to apply, 100% human hair, set of 8 pieces</p>
+            <div class="product-price">
+              <span class="current-price">₦25,000</span>
+              <span class="original-price">₦32,000</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="5">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="extensions">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1591369822096-ffd140ec948a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHRhcGUlMjBpbiUyMGhhaXIlMjBleHRlbnNpb25zfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80" alt="Tape-in Extensions">
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Extensions</div>
+            <h3 class="product-name">Tape-in Extensions</h3>
+            <p class="product-description">Professional tape-in extensions, seamless application</p>
+            <div class="product-price">
+              <span class="current-price">₦35,000</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="6">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nail Products -->
+        <div class="product-card" data-category="nails">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5haWwlMjBwcm9kdWN0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Acrylic Nail Kit">
+            <div class="product-badge">New</div>
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Nail Products</div>
+            <h3 class="product-name">Professional Acrylic Kit</h3>
+            <p class="product-description">Complete acrylic nail kit with brushes, forms, and powders</p>
+            <div class="product-price">
+              <span class="current-price">₦15,000</span>
+              <span class="original-price">₦18,500</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="7">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="nails">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGdlbCUyMG5haWwlMjBwb2xpc2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=80" alt="Gel Polish Set">
+            <div class="product-badge sale">Sale</div>
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Nail Products</div>
+            <h3 class="product-name">Gel Polish Collection</h3>
+            <p class="product-description">Set of 12 gel polishes with base and top coat</p>
+            <div class="product-price">
+              <span class="current-price">₦12,500</span>
+              <span class="original-price">₦16,000</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="8">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lashes -->
+        <div class="product-card" data-category="lashes">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGxhc2hlc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Mink Lashes">
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Lashes</div>
+            <h3 class="product-name">Premium Mink Lashes</h3>
+            <p class="product-description">Natural looking mink lashes, reusable up to 25 times</p>
+            <div class="product-price">
+              <span class="current-price">₦4,500</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="9">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="lashes">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bGFzaCUyMGtpdHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Lash Extension Kit">
+            <div class="product-badge">Popular</div>
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Lashes</div>
+            <h3 class="product-name">Professional Lash Kit</h3>
+            <p class="product-description">Complete lash extension kit with tools and adhesives</p>
+            <div class="product-price">
+              <span class="current-price">₦22,000</span>
+              <span class="original-price">₦28,000</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="10">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pedicure -->
+        <div class="product-card" data-category="pedicure">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1593537612373-cc361d8a354e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGVkaWN1cmUlMjBraXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=80" alt="Pedicure Spa Kit">
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Pedicure</div>
+            <h3 class="product-name">Home Pedicure Spa Kit</h3>
+            <p class="product-description">Complete pedicure set with foot bath and tools</p>
+            <div class="product-price">
+              <span class="current-price">₦18,500</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="11">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="pedicure">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1596462102388-9ad96cec298a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb3QlMjBjcmVhbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Luxury Foot Care Set">
+            <div class="product-badge">New</div>
+            <button class="product-wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Pedicure</div>
+            <h3 class="product-name">Luxury Foot Care Set</h3>
+            <p class="product-description">Premium foot creams, scrubs, and massage tools</p>
+            <div class="product-price">
+              <span class="current-price">₦9,800</span>
+              <span class="original-price">₦12,500</span>
+            </div>
+            <div class="product-actions">
+              <a href="#contact" class="inquire-btn">Inquire Now</a>
+              <button class="quick-view-btn" data-product="12">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Categories -->
+  <section class="categories-section">
+    <div class="products-container">
+      <div class="section-title">
+        <span>Collections</span>
+        <h2>Shop By Category</h2>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="category-image">
+            <div class="category-icon">
+              <i class="fas fa-cut"></i>
+            </div>
+          </div>
+          <div class="category-overlay">
+            <h3 class="category-name">Human Hair</h3>
+            <p class="category-count">24 Products</p>
+          </div>
+        </div>
+
+        <div class="category-card">
+          <div class="category-image">
+            <div class="category-icon">
+              <i class="fas fa-braille"></i>
+            </div>
+          </div>
+          <div class="category-overlay">
+            <h3 class="category-name">Braids</h3>
+            <p class="category-count">18 Products</p>
+          </div>
+        </div>
+
+        <div class="category-card">
+          <div class="category-image">
+            <div class="category-icon">
+              <i class="fas fa-arrows-alt-h"></i>
+            </div>
+          </div>
+          <div class="category-overlay">
+            <h3 class="category-name">Extensions</h3>
+            <p class="category-count">15 Products</p>
+          </div>
+        </div>
+
+        <div class="category-card">
+          <div class="category-image">
+            <div class="category-icon">
+              <i class="fas fa-hand-sparkles"></i>
+            </div>
+          </div>
+          <div class="category-overlay">
+            <h3 class="category-name">Nail Products</h3>
+            <p class="category-count">32 Products</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="newsletter-content">
+      <h2 class="newsletter-title">Join Our Beauty Community</h2>
+      <p class="newsletter-subtitle">Subscribe to get exclusive offers, beauty tips, and new product alerts</p>
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Stella Empire</h3>
+        <p>Premium beauty products for the modern woman who deserves luxury and quality.</p>
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Customer Service</h3>
+        <ul>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Beauty Street, Lagos</li>
+          <li><i class="fas fa-phone"></i> +234 810 123 4567</li>
+          <li><i class="fas fa-envelope"></i> info@stellaempire.com</li>
+          <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 6PM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2023 Stella Empire. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Product Modal -->
+  <div class="modal" id="product-modal">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <div class="modal-product">
+        <div class="modal-product-image">
+          <img src="" alt="" id="modal-img">
+        </div>
+        <div class="modal-product-info">
+          <div class="product-category" id="modal-category"></div>
+          <h2 class="product-name" id="modal-name"></h2>
+          <p class="product-description" id="modal-description"></p>
+          <div class="product-price">
+            <span class="current-price" id="modal-price"></span>
+            <span class="original-price" id="modal-original-price"></span>
+          </div>
+          <div class="product-actions">
+            <a href="#contact" class="inquire-btn">Inquire About This Product</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Get filter category
+        const filter = button.getAttribute('data-category');
+        
+        // Filter products
+        productCards.forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Quick view modal
+    const quickViewButtons = document.querySelectorAll('.quick-view-btn');
+    const modal = document.getElementById('product-modal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Sample product data for modal
+    const products = {
+      1: {
+        category: "Human Hair",
+        name: "Brazilian Straight Bundle",
+        description: "Premium 100% human hair, silky straight texture, 22 inches. Can be dyed, bleached, and styled with heat tools. Tangle-free and minimal shedding.",
+        price: "₦45,000",
+        originalPrice: "₦55,000",
+        image: "https://images.unsplash.com/photo-1603712610494-70c60d283e2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhhaXIlMjBleHRlbnNpb25zfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80"
+      },
+      2: {
+        category: "Human Hair",
+        name: "Peruvian Curly Wave",
+        description: "Luxurious curly texture, 20 inches, full and bouncy. 100% human hair with natural-looking curls that hold their shape.",
+        price: "₦38,000",
+        originalPrice: "₦48,000",
+        image: "https://images.unsplash.com/photo-1591369822096-ffd140ec948a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGN1cmx5JTIwaGFpcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=80"
+      },
+      3: {
+        category: "Braids",
+        name: "Kanekalon Braiding Hair",
+        description: "High-quality synthetic braiding hair, multiple colors available. Soft, lightweight, and easy to braid. Heat resistant up to 180°C.",
+        price: "₦2,500",
+        originalPrice: "",
+        image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnJhaWRpbmclMjBoYWlyfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=80"
+      }
+      // Additional product data would be added here for all 12 products
+    };
+    
+    quickViewButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const productId = button.getAttribute('data-product');
+        const product = products[productId];
+        
+        if (product) {
+          document.getElementById('modal-img').src = product.image;
+          document.getElementById('modal-category').textContent = product.category;
+          document.getElementById('modal-name').textContent = product.name;
+          document.getElementById('modal-description').textContent = product.description;
+          document.getElementById('modal-price').textContent = product.price;
+          
+          if (product.originalPrice) {
+            document.getElementById('modal-original-price').textContent = product.originalPrice;
+            document.getElementById('modal-original-price').style.display = 'inline';
+          } else {
+            document.getElementById('modal-original-price').style.display = 'none';
+          }
+          
+          modal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+    
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Animation on scroll
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    animateElements.forEach(element => {
+      observer.observe(element);
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const pageNav = document.querySelector('.page-nav ul');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      pageNav.style.display = pageNav.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>
